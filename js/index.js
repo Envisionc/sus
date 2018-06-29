@@ -48,29 +48,34 @@ $(document).ready(function () {
         var disy = e.clientY - pos.top;
         var w = pos.width;
         var h = pos.height;
-        var $cloneSvg = $(this).find('svg > rect').clone(true);
+        // console.log($(this));
+        // var $cloneSvg = $(this).find('svg > rect').clone(true);
+        var $cloneItem = $(this).clone(true);
         
-        // console.log( $(document.body) );
-        $svg.append( $cloneSvg );
+        console.log( $cloneItem );
+        $(document.body).append( $cloneItem );
         // console.log( disx,disy, cloneSvg.id);
 
-        $cloneSvg.on("mousemove",function(e) {
+        $cloneItem.on("mousemove",function(e) {
           // debugger;  
           if( flag ) {
             var nowx = e.clientX - disx;
             var nowy = e.clientY - disy;
-            $cloneSvg.css("x",nowx).css("y",nowy ).css("opacity","1");
+            // $cloneSvg.css("x",nowx).css("y",nowy ).css("opacity","1");
+            $cloneItem.style.top = nowx + "px";
+            $cloneItem.style.left = nowy + "px";
           }
         });
 
-        $svg.on("mouseup",function() {
-
+        $cloneItem.on("mouseup",function() {
           var x = $cloneSvg.offsetLeft;
           var y = $cloneSvg.offsetTop;
           x = Math.round(x/w)*w;
           y = Math.round(y/h)*h;
           
-          $cloneSvg.css("x",x).css("y",y);
+          // $cloneItem.css("x",x).css("y",y);
+          $cloneItem.style.top = x + "px";
+          $cloneItem.style.left = y + "px";
           flag = false;
           // $svg.remove( $cloneSvg );
         });
