@@ -1,0 +1,117 @@
+body {
+  /* background-color: #383838; */
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #464646;
+}
+
+#main-content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab-wrapper {
+  border: 1px solid #A6FFFF;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+  overflow: hidden;
+  margin-top: 60px;
+  width: 20%;
+  max-width: 500px;
+  min-width: 240px;
+}
+
+.tab-menu li {
+  position: relative;
+  background-color: #eee;
+  color: #bcbcbc;
+  display: inline-block;
+  padding: 20px 20px;
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.tab-menu li:hover {
+  color: #464646;
+}
+
+.tab-menu li.active {
+  background-color: #fff;
+  color: #464646;
+  /* border: 2px solid #f00; */
+  opacity: 1;
+}
+
+.tab-menu li.active:hover {
+  color: #464646;
+}
+
+.tab-content>div {
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 200px;
+}
+
+.svg_all {
+  /* position: relative; */
+  background-color: #fff;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.svg-item {
+  float: left;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #eee;
+  border-top: -1px;
+  border-left: -1px;
+  position: relative;
+	left: 0;
+	top: 0;
+}
+.svg-item:hover {
+  background-color: #eee;
+}
+.svg-item>svg {
+  margin-top: 5px;
+}
+
+.selected {
+  border: 1px solid aqua;
+}
+.add {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.line {
+  position: absolute;
+  width: 0;
+  height: 7px;
+  background-color: aqua;
+  top: 0;
+  left: 0;
+}
+
+#myflow {
+  position: relative;
+  margin-top: 60px;
+  margin-left:5px;
+  border: 1px solid #eee;
+}

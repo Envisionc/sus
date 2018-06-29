@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	.box{
+		padding-top: 100px;
+		width: 100px;
+		text-align: center;
+		border: 1px solid #000;
+		background-color: pink;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+</style>
+</head>
+<body>
+<div id="box" class="box">文件夹</div>
+<script>
+	var box = document.getElementById("box");
+	
+	box.onmousedown = function(e){
+		var pos = box.getBoundingClientRect(),
+			disx = e.clientX - pos.left,
+			disy = e.clientY - pos.top,
+			w = pos.width,
+			h = pos.height;
+		var cloneBox = box.cloneNode(true);
+		cloneBox.id += 1;
+		document.body.appendChild( cloneBox );	
+		document.onmousemove = function(e){
+			cloneBox.style.left = e.clientX - disx + "px";
+			cloneBox.style.top = e.clientY - disy + "px";
+			cloneBox.style.opacity = 0.4;
+		}
+		document.onmouseup = function(){
+			var x = cloneBox.offsetLeft,
+				y = cloneBox.offsetTop;
+//			10 0
+//			20 0
+//			40 0
+//			60 100
+//			99 100
+			x = Math.round(x/w)*w;
+			y = Math.round(y/h)*h;
+			
+			box.style.left = x + "px";
+			box.style.top = y + "px";
+			
+			document.body.removeChild( cloneBox );
+		}
+		return false;
+	}
+</script>
+</body>
+</html>
